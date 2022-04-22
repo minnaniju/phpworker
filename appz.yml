@@ -1,0 +1,35 @@
+app:
+    name: phpworker
+    code: phpworker
+    notify: mniju@ecloudcontrol.com
+    
+build:
+    version: 7.4
+    env: DEV
+    build_file: none
+    output_files: output/*.zip
+    image_template: phpworker-7.4
+    
+deploy:
+    context: minnaniju/DEV
+    replicas: 1
+    port:
+    - 80
+    
+properties:
+    MYSQL_PASSWORD: 
+      VAULT: MYSQL_PASSWORD_KEY
+    APP_NAME: Travellist
+    APP_ENV: dev
+    APP_KEY: VAULT:APP_KEY
+    APP_DEBUG: true
+    APP_URL: http://localhost:8000
+    LOG_CHANNEL: stack
+    DB_CONNECTION: mysql
+    DB_HOST: db
+    DB_PORT: 3306
+    DB_DATABASE: travellist
+    DB_USERNAME: travellist_user
+    DB_PASSWORD: 
+      VAULT: MYSQL_PASSWORD_KEY
+    revision : 20
