@@ -13,9 +13,7 @@ build:
 deploy:
     context: minnaniju/DEV
     replicas: 1
-    port:
-    - 80
-    
+     
 properties:
     MYSQL_PASSWORD: 
       VAULT: MYSQL_PASSWORD_KEY
