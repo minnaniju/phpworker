@@ -15,7 +15,7 @@ deploy:
     replicas: 1
      
 properties:
-    APP_NAME: Jibe
+    APP_NAME: phpworker
     APP_ENV: local
     APP_KEY:
       vault: APP_KEY
